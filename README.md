@@ -28,11 +28,11 @@ docker-compose down
 # Como instalar Drupal 8
 - Por enquanto estou usando esta versão de projeto Drupal. Após criar com sucesso o container, procure a pasta `www` aonde será armazenado os projetos em php. Em um terminal dentro da pasta `www`, faça:
 ```bash
-> composer create-project --no-install drupal-composer/drupal-project:8.x-dev --stability dev --no-interaction drupal8
+composer create-project --no-install drupal-composer/drupal-project:8.x-dev --stability dev --no-interaction drupal8
 ```
 - Após baixar o projeto Drupal, faça:
 ```bash
-> composer install --ignore-platform-reqs
+composer install --ignore-platform-reqs
 ```
 ### Criar a base para o Drupal. Acesse o PhpMyAdmin `http://localhost:8080`
 ```bash
