@@ -92,7 +92,7 @@ $ vim /etc/apache2/apache2.conf
 make install: #Apaga todos os containers e reconstroi
 make in: # Entrar no bash do php-apache-php-8.1
 make up: # Levanta os containers 
-stop: #Para os containers
+make stop: #Para os containers
 ```
 
 ### No Drupal ao finalizar a configuração do banco, em host utilize `db-local`, o resto tudo igual a configuração acima.
