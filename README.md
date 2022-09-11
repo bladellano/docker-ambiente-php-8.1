@@ -2,8 +2,12 @@
 
 Base para desenvolvimento Drupal 8/9 ou também para desenvolver qualquer aplicação com PHP 8.1 + MySQL + PhpMyAdmin
 
+
+## Pré requisitos:
+- Docker
+- Docker Compose
+
 # Instalação
-### Pré requisitos: Docker e Docker Compose
 
 ```bash
 #Clonar repositótio
@@ -87,9 +91,9 @@ $ vim /etc/apache2/apache2.conf
         Require all granted
 </Directory>
 ```
-### Make
+### Comandos Make
 ```bash
-make install: #Apaga todos os containers e reconstroi
+make install: # Apaga todos os containers e reconstroi
 make in: # Entrar no bash do php-apache-php-8.1
 make up: # Levanta os containers 
 make stop: # Para os containers
