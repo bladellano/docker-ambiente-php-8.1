@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
       sudo \
       git \
       vim \
+      nano \
       zip \
       wget \
       htop \

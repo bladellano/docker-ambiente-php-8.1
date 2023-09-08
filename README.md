@@ -5,7 +5,6 @@ Base para desenvolvimento Drupal ou também para desenvolver qualquer aplicaçã
 - MySQL 
 - PhpMyAdmin
 
-
 ## Pré requisitos:
 - Docker
 - Docker Compose
@@ -27,21 +26,21 @@ make stop: # Pára os containers
 # Como instalar Drupal 9:
 Após criar com sucesso o containers, procure a pasta `www` aonde será armazenado os projetos em php. Em um terminal dentro da pasta `www`, faça (mas não dentro dos containers, no seu ambiente local mesmo):
 ```bash
-$ composer create-project --no-install drupal/recommended-project:9.5.2 drupal9
+$ composer create-project --no-install drupal/recommended-project:9.5.3 drupal9-00
 ```
 Após baixar o projeto Drupal, faça. O comando abaixo ignora a versão do seu php local e instala todas dependências:
 ```bash
-$ cd drupal9
-$ composer install --ignore-platform-reqs
+cd drupal9
+composer install --ignore-platform-reqs
 ```
-### Criar a base para o Drupal. Acesse o PhpMyAdmin `http://localhost:4520`
+### Criar a base para o Drupal. Acesse o PhpMyAdmin [http://localhost:4520](http://localhost:4520)
 ```bash
 User: root
 Password: root
 ```
-Em seguida, clicando em `novo`, crie uma base com qualquer nome. Por exemplo: `drupal9`
+Em seguida, clicando em `NOVO`, crie uma base com qualquer nome. Por exemplo: `drupal9_00`
 ### Agora acessando a área das projetos `www`:
-Link: `http://localhost:4500`
+Link: [http://localhost:4500](http://localhost:4500)
 
 ### Caso queira acessar o banco por um outro SGBD, faça:
 Configure o host desta forma:
@@ -56,39 +55,38 @@ Password: root
 ### Durante a instalação do Drupal
 Permissão de escrita nas pastas:
 ```bash
-$ mkdir /web/sites/default/files/translations
-$ chmod 777 -R /files/translations
+mkdir /web/sites/default/ → files/translations
+chmod 777 -R /files/translations
 
-$ cd www/drupal/web/sites/ 
-$ cd /default
-$ cp default.settings.php settings.php
-$ sudo chmod 777 settings.php
+cp web/sites/default/default.settings.php web/sites/default/settings.php
+sudo chmod 777 web/sites/default/settings.php
 
-#Depois de concluir a instalação com sucesso, faça:
-$ chmod 444 settings.php
+# Depois de concluir a instalação com sucesso, faça:
+chmod 444 settings.php
 
 ####################################
 ###QUANDO FOR CRIAR CUSTOM THEMES###
 ####################################
-$ sudo chown www-data -R web/themes/
-$ sudo chown www-data -R web/sites/
+sudo chown www-data -R web/themes/
+sudo chown www-data -R web/sites/
 
-#Ou tudo isso, por isso:
-$ cd web
-$ sudo chown www-data:www-data sites -R
+# Ou tudo isso, por isso:
+cd web
+sudo chown www-data:www-data sites -R
 
-#Drush - Importante!
-$ composer require --dev drush/drush 
+# Drush - Importante!
+composer require --dev drush/drush 
 
-#Importando uma base dados (apenas dica/sugestão):
+# Importando uma base dados (apenas dica/sugestão):
 $ cd drupal/
-$ mkdir drupal/db #Copiar p/ este local o dump.sql
-$ ./vendor/bin/drush sqlc < ./db/drupal9x.sql
+$ mkdir drupal/db-init # Copiar para este local o dump.sql
+$ ./vendor/bin/drush sqlc < ./db-init/backup.sql
 ```
 ### Habilitar listagem de pasta no apache do container
 ```bash
-$ vim /etc/apache2/apache2.conf
+nano /etc/apache2/apache2.conf
 #Adicionar
+
 <Directory /var/www/html>
         Options Indexes FollowSymLinks
         AllowOverride All
