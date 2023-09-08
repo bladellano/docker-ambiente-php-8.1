@@ -78,9 +78,9 @@ sudo chown www-data:www-data sites -R
 composer require --dev drush/drush 
 
 # Importando uma base dados (apenas dica/sugestão):
-$ cd drupal/
-$ mkdir drupal/db-init # Copiar para este local o dump.sql
-$ ./vendor/bin/drush sqlc < ./db-init/backup.sql
+cd drupal/
+mkdir drupal/db-init # Copiar para este local o dump.sql
+./vendor/bin/drush sqlc < ./db-init/backup.sql
 ```
 ### Habilitar listagem de pasta no apache do container
 ```bash
